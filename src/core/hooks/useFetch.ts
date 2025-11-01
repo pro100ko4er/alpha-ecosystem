@@ -1,7 +1,7 @@
 import { AxiosError } from "axios"
 import { useState } from "react"
 
-export default function<T>(callback: () => Promise<T>) {
+export default function useFetch(callback: () => Promise<any>): [callback: () => Promise<any>, isLoading: boolean, error: string] {
     const [isLoading, setIsLoading] = useState<boolean>(false)
     const [error, setError] = useState<string>('')
     const fetching = async () => {

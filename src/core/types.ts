@@ -4,6 +4,7 @@ export interface IProduct {
     description: string,
     price_display: string,
     external_sku: number,
+    liked: boolean,
     image_url: string,
     updated_at: string
 }

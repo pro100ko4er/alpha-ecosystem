@@ -43,17 +43,17 @@ const onUpdateProduct = useCallback((id: number) => {
         navigate(`/edit-product/${id}`)
 }, [navigate])
 
-   const onClickProduct = useCallback((id: number) => {
-  navigate(`/products/${id}`);
-}, [navigate]);
+    const onClickProduct = useCallback((id: number) => {
+        navigate(`/products/${id}`);
+    }, [navigate])
     useEffect(() => {
-        if(!params.id) {
+        if(!params.id && product_state.filter !== 'liked') {
             fetchProducts()
             setProduct(null)
         }
-        else if(product_state.filter !== 'liked') {
-    setProduct(product_state.products.find(p => p.id === Number(params.id)))
-}
+        else {
+        setProduct(product_state.products.find(p => p.id === Number(params.id)))
+        }
     }, [params])
     useObserver({
         callback: () => fetchProducts(),

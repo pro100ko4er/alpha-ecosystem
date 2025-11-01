@@ -9,8 +9,13 @@ export interface ProductItemProps extends CardProps {
     onUpdate: (id: number) => void
 }
 
+
+ 
+
 function ProductItem(props: ProductItemProps) {
-    const {product, onClick, onLike, onRemove, onUpdate, ...other} = props
+    const {product, onLike, onRemove, onUpdate, ...other} = props
+
+    
    const onRemoveClick = useCallback(
   (e: MouseEvent<HTMLButtonElement>) => {
     e.stopPropagation();
